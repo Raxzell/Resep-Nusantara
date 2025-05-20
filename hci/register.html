@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resep Nusantara - Daftar</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #680707;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .register-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+        }
+        
+         .logo {
+            margin-bottom: 30px;
+        }
+        
+        
+        .logo h1 {
+            font-family: 'Libre Caslon Text';
+            color: #680707;
+            size: 30px;
+            margin-top: 10px;
+            font-size: 24px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        
+        .error-message {
+            color: #e74c3c;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        button {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #c0392b;
+        }
+        
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #777;
+        }
+        
+        .footer a {
+            color: #e74c3c;
+            text-decoration: none;
+        }
+        
+        .terms {
+            font-size: 12px;
+            color: #777;
+            margin-top: 15px;
+            text-align: left;
+        }
+        
+        .terms input {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <div class="logo">
+            <!-- Replace with your actual logo -->
+            <h1>Resep Nusantara</h1>
+        </div>
+        
+        <h2>register</h2>
+        
+        <form id="registerForm">
+            <div class="form-group">
+                <label for="fullname">Nama Lengkap</label>
+                <input type="text" id="fullname" name="fullname" placeholder="Masukkan nama lengkap Anda">
+                <div class="error-message" id="nameError">Nama lengkap harus diisi</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Buat username (minimal 5 karakter)">
+                <div class="error-message" id="usernameError">Username harus minimal 5 karakter</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" placeholder="Masukkan email Anda">
+                <div class="error-message" id="emailError">Email harus valid (contoh: user@example.com)</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Buat password (minimal 8 karakter)">
+                <div class="error-message" id="passwordError">Password harus minimal 8 karakter</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="confirmPassword">Konfirmasi Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Ulangi password Anda">
+                <div class="error-message" id="confirmPasswordError">Password tidak cocok</div>
+            </div>
+            
+            <div class="terms">
+                <input type="checkbox" id="agreeTerms" name="agreeTerms">
+                <label for="agreeTerms">Saya menyetujui Syarat & Ketentuan dan Kebijakan Privasi Resep Nusantara</label>
+                <div class="error-message" id="termsError">Anda harus menyetujui syarat dan ketentuan</div>
+            </div>
+            
+            <button type="submit">Daftar Sekarang</button>
+        </form>
+        
+        <div class="footer">
+            Sudah punya akun? <a href="login.html">Login disini</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const fullname = document.getElementById('fullname').value;
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const agreeTerms = document.getElementById('agreeTerms').checked;
+            
+            const nameError = document.getElementById('nameError');
+            const usernameError = document.getElementById('usernameError');
+            const emailError = document.getElementById('emailError');
+            const passwordError = document.getElementById('passwordError');
+            const confirmPasswordError = document.getElementById('confirmPasswordError');
+            const termsError = document.getElementById('termsError');
+            
+            let isValid = true;
+            
+            // Validate full name
+            if (fullname.trim() === '') {
+                nameError.style.display = 'block';
+                isValid = false;
+            } else {
+                nameError.style.display = 'none';
+            }
+            
+            // Validate username
+            if (username.length < 5) {
+                usernameError.style.display = 'block';
+                isValid = false;
+            } else {
+                usernameError.style.display = 'none';
+            }
+            
+            // Validate email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                emailError.style.display = 'block';
+                isValid = false;
+            } else {
+                emailError.style.display = 'none';
+            }
+            
+            // Validate password
+            if (password.length < 8) {
+                passwordError.style.display = 'block';
+                isValid = false;
+            } else {
+                passwordError.style.display = 'none';
+            }
+            
+            // Validate password confirmation
+            if (password !== confirmPassword) {
+                confirmPasswordError.style.display = 'block';
+                isValid = false;
+            } else {
+                confirmPasswordError.style.display = 'none';
+            }
+            
+            // Validate terms agreement
+            if (!agreeTerms) {
+                termsError.style.display = 'block';
+                isValid = false;
+            } else {
+                termsError.style.display = 'none';
+            }
+            
+            if (isValid) {
+                // Form is valid, proceed with registration
+                alert('Pendaftaran berhasil! Silakan login dengan akun Anda.');
+                // Here you would typically send the data to your server
+                // window.location.href = 'login.html';
+            }
+        });
+    </script>
+</body>
+</html>

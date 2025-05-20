@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayam Bumbu Woku - Resep Nusantara</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="recipe-detail.css">
+    <script src="recipe-detail.js" defer></script>
+</head>
+<body>
+     <nav class="navbar">
+            <div class="container">
+            <div class="title">
+                <h1 class="logo-text">Resep Nusantara</h1>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Cari resep...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="nav-links">
+                <a href="afterlogin.html">Beranda</a>
+                <a href="upload.html">Upload Resep</a>
+                <a href="my-recipes.html" class="active">Resep Saya</a>
+                <a href="saved-recipes.html">Disimpan</a>
+            </div>
+            <div class="user-profile">
+                <div class="profile-info">
+                    <img src="profile abu.jpg" alt="Profile" class="profile-img">
+                    <span class="profile-name" id="displayUsername"> </span>
+                </div>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="recipe-detail">
+        <div class="recipe-header">
+            <div class="recipe-image">
+                <img id="recipeImage" src="woku.jpg" alt="Ayam Bumbu Woku">
+                  <button id="saveRecipeBtn" class="save-btn">
+            <i class="far fa-bookmark"></i> Simpan
+            </button>
+            </div>
+            <div class="recipe-meta">
+                <h1 id="recipeTitle">Ayam Bumbu Woku</h1>
+                <div class="author-info">
+                    <img id="authorAvatar" src="woman.jpg" alt="Penulis">
+                    <div>
+                        <span id="authorName">Fredelica</span>
+                        <span id="uploadDate">20 Mei 2024</span>
+                    </div>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <i class="far fa-clock"></i>
+                        <span id="cookingTime">45</span> menit
+                    </div>
+                    <div class="stat-item">
+                        <i class="fas fa-utensils"></i>
+                        <span id="servings">4</span> porsi
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="recipe-section">
+            <h2>Deskripsi</h2>
+            <p id="recipeDescription">Ayam Woku berasal dari Manado, Sulawesi Utara. Kata "woku" dalam bahasa Minahasa berarti "diremas" atau "dihancurkan," mencerminkan proses pengolahan bumbu-bumbu segar dan rempah-rempah yang dihancurkan dan diolah bersama untuk menciptakan cita rasa yang khas.</p>
+        </div>
+
+        <div class="recipe-section">
+            <h2>Bahan-bahan</h2>
+            <ul id="ingredientsList" class="ingredients-list">
+                <li>1/2 ekor ayam (500gr)</li>
+                <li>2 ikat kemangi ambil daunnya</li>
+                <li>Secukupnya air panas</li>
+                <li>4 butir bawang merah</li>
+                <li>3 butir bawang putih</li>
+                <li>11 buah cabe rawit merah</li>
+                <li>1 buah cabe merah besar (bisa 2 bh)</li>
+                <li>2 butir kemiri</li>
+                <li>2 cm jahe</li>
+                <li>1 ruas kunyit kecil</li>
+                <li>1 atau 2 buah tomat</li>
+                <li>1 btg serai</li>
+                <li>2 lembar daun salam</li>
+                <li>2 lembar daun jeruk</li>
+                <li>1 ruas lengkuas</li>
+                <li>8 bh cabe hijau keriting</li>
+            </ul>
+        </div>
+
+        <div class="recipe-section">
+            <h2>Langkah Pembuatan</h2>
+            <ol id="stepsList" class="steps-list">
+                <li>Potong² ayam sesuai selera. Lalu rebus ayam 10 menit saja. Angkat dan cuci bersih kembali.</li>
+                <li>Siapkan bumbu halus, bumbu aromatik dan bumbu iris. Petiki juga daun kemangi sisihkan</li>
+                <li>Panaskan secukupnya minyak goreng. Tumis bumbu halus dan bumbu aromatik dan tomat iris. Masak hingga harum dan matang agar tidak langu</li>
+                <li>Setelah bumbu matang, masukkan ayam. Tambahkan separuh bagian daun kemangi. Aduk rata dan tuangkan secukupnya air. Gunakan air panas ya.</li>
+                <li>Beri seasoning, kaldu bubuk, gula pasir, garam. Test rasa dan masak hingga mengental</li>
+                <li>Setelah bumbu mengental. Masukkan sisa daun kemangi. Aduk rata sebentar saja. Angkat dan siap disajikan dengan nasi hangat</li>
+            </ol>
+        </div>
+    </div>
+
+       <!-- Rating dan Ulasan -->
+            <div class="recipe-section">
+                <h2>Berikan Rating & Ulasan</h2>
+                <div class="rating-form">
+                    <div class="stars">
+                        <span class="star" data-value="1"><i class="far fa-star"></i></span>
+                        <span class="star" data-value="2"><i class="far fa-star"></i></span>
+                        <span class="star" data-value="3"><i class="far fa-star"></i></span>
+                        <span class="star" data-value="4"><i class="far fa-star"></i></span>
+                        <span class="star" data-value="5"><i class="far fa-star"></i></span>
+                    </div>
+                    <textarea id="reviewText" placeholder="Bagaimana pengalaman Anda mencoba resep ini?"></textarea>
+                    <button id="submitReviewBtn" class="btn-submit">Kirim Ulasan</button>
+                </div>
+                <div id="reviewsContainer" class="reviews-container">
+                    <!-- Ulasan akan dimuat di sini -->
+                </div>
+            </div>
+        </div>
+</body>
+</html>
